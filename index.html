@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammed Shibil — Cybersecurity Professional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #eef1f4;
+    --surface: #ffffff;
+    --ink: #14202b;
+    --ink-soft: #51606d;
+    --ink-faint: #8695a2;
+    --accent: #1b4b66;
+    --accent-warm: #a97c50;
+    --line: #d7dee4;
+    --radius: 3px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 28px 96px;
+  }
+
+  /* ---------- Header / Hero ---------- */
+
+  header.hero {
+    padding: 72px 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .seal { flex: none; width: 76px; height: 76px; }
+  .seal circle { fill: none; stroke: var(--accent); }
+  .seal .ring-outer { stroke-width: 1.2; opacity: 0.55; }
+  .seal .ring-inner { stroke-width: 1; opacity: 0.3; }
+  .seal text {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 20px;
+    fill: var(--accent);
+    text-anchor: middle;
+    dominant-baseline: central;
+  }
+
+  .hero-text .status {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-warm);
+    margin: 0 0 8px;
+  }
+  .hero-text .status::before { content: "● "; color: #4f8f6b; }
+
+  h1 {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    font-size: 2.05rem;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .tagline { margin: 0 0 10px; color: var(--ink-soft); font-size: 1.02rem; }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    color: var(--ink-faint);
+  }
+  .hero-meta a { color: var(--ink-faint); text-decoration: none; }
+  .hero-meta a:hover { color: var(--accent); }
+
+  /* ---------- Section scaffolding ---------- */
+
+  section { padding: 44px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+
+  .field-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .field-label::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+  h2 {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    font-size: 1.35rem;
+    margin: 0 0 16px;
+    color: var(--ink);
+  }
+
+  p { color: var(--ink-soft); margin: 0 0 14px; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ---------- Experience ---------- */
+
+  .job {
+    padding-bottom: 28px;
+    margin-bottom: 28px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .job:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .job-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    margin-bottom: 4px;
+  }
+
+  .job-title { font-weight: 600; color: var(--ink); font-size: 1rem; }
+  .job-org { color: var(--accent); font-size: 0.92rem; font-weight: 500; }
+  .job-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.05em;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+
+  .job ul { margin: 10px 0 0; padding-left: 18px; }
+  .job li { color: var(--ink-soft); margin-bottom: 6px; font-size: 0.94rem; }
+  .job li:last-child { margin-bottom: 0; }
+
+  /* ---------- Skills matrix ---------- */
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 24px;
+  }
+  .skill-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 9px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 0.93rem;
+  }
+  .skill-row .name { color: var(--ink); }
+
+  /* ---------- Certifications ---------- */
+
+  .cert-list { display: flex; flex-direction: column; gap: 12px; }
+  .cert-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 13px 16px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+  .cert-badge { flex: none; width: 30px; height: 30px; }
+  .cert-badge circle { fill: none; stroke: var(--accent-warm); stroke-width: 1.3; }
+  .cert-badge path { stroke: var(--accent-warm); stroke-width: 1.3; fill: none; }
+  .cert-item .cert-name { font-weight: 500; color: var(--ink); font-size: 0.93rem; }
+
+  /* ---------- Achievements ---------- */
+
+  .achievement {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 12px 0;
+  }
+  .achievement .a-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+  .achievement .a-text { color: var(--ink-soft); font-size: 0.94rem; }
+  .achievement .a-text strong { color: var(--ink); }
+
+  /* ---------- Two-col: education / languages ---------- */
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .two-col h2 { font-size: 1.15rem; }
+  .lang-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 0.92rem;
+  }
+  .lang-row .level {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* ---------- Contact ---------- */
+
+  .contact-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .contact-link:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .contact-link svg { width: 16px; height: 16px; stroke: var(--accent); fill: none; stroke-width: 1.6; }
+
+  footer {
+    padding: 40px 0 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 560px) {
+    header.hero { padding-top: 52px; flex-direction: column; align-items: flex-start; gap: 18px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; gap: 36px; }
+    h1 { font-size: 1.65rem; }
+    .job-head { flex-direction: column; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .contact-link { transition: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <svg class="seal" viewBox="0 0 76 76" aria-hidden="true">
+      <circle class="ring-outer" cx="38" cy="38" r="35"/>
+      <circle class="ring-inner" cx="38" cy="38" r="28"/>
+      <text x="38" y="39">MS</text>
+    </svg>
+    <div class="hero-text">
+      <p class="status">Seeking Junior SOC Analyst / VAPT roles</p>
+      <h1>Muhammed Shibil</h1>
+      <p class="tagline">Cybersecurity Professional — Web App Pentesting, Cyber Forensics &amp; Vulnerability Assessment</p>
+      <div class="hero-meta">
+        <span>Dubai, UAE</span>
+        <span>+971 54 150 8986</span>
+        <a href="mailto:shibilsalu086@gmail.com">shibilsalu086@gmail.com</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="summary">
+    <p class="field-label">Summary</p>
+    <h2>Profile</h2>
+    <p>
+      Entry-level cybersecurity professional with hands-on experience in web application
+      penetration testing, cyber forensics, vulnerability assessment, and security reporting.
+      Skilled in Burp Suite, Nmap, Wireshark, Nessus, SQLMap, and SIEM fundamentals.
+      Active on TryHackMe and Hack The Box, seeking a Junior SOC Analyst or VAPT role.
+    </p>
+  </section>
+
+  <section id="experience">
+    <p class="field-label">Experience</p>
+    <h2>Work History</h2>
+
+    <div class="job">
+      <div class="job-head">
+        <div>
+          <div class="job-title">Cyber Forensic Intern</div>
+          <div class="job-org">Malappuram Cyber Police Station</div>
+        </div>
+        <div class="job-date">01/2026 – 02/2026</div>
+      </div>
+      <ul>
+        <li>Completed a cyber forensic internship gaining practical exposure to digital investigations, cybercrime analysis, and forensic methodologies.</li>
+        <li>Learned procedures for handling digital evidence while maintaining integrity and chain of custody standards.</li>
+        <li>Studied common cybercrimes including phishing, vishing, SIM swap fraud, social media impersonation, and financial scams, along with prevention and victim support processes.</li>
+        <li>Gained foundational knowledge of forensic tools including Magnet AXIOM, Cellebrite, and FTK Imager.</li>
+        <li>Explored mobile forensics techniques, including logical and physical data acquisition from Android and iOS devices.</li>
+        <li>Developed understanding of OSINT and social media analysis, plus blockchain and cryptocurrency investigation concepts involving Bitcoin and Ethereum.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div>
+          <div class="job-title">Web Application Penetration Tester, Intern</div>
+        </div>
+        <div class="job-date">01/2025 – 02/2025</div>
+      </div>
+      <ul>
+        <li>Conducted an in-depth assessment of the company's web application, identifying a critical vulnerability with significant exposure.</li>
+        <li>Developed a comprehensive vulnerability report detailing technical impact, mitigation strategies, and verification steps.</li>
+        <li>Collaborated with the engineering team to remediate and validate the vulnerability, ensuring the application was fully secured.</li>
+        <li>Reduced security risk by 40% through proactive vulnerability identification and resolution.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div>
+          <div class="job-title">Intern</div>
+          <div class="job-org">First Logic Institute of Technology, Perinthalmanna</div>
+        </div>
+        <div class="job-date">02/2025 – 06/2025</div>
+      </div>
+      <ul>
+        <li>Supported staff with daily tasks, reducing workload and allowing increased focus on higher-priority assignments.</li>
+        <li>Examined market trends and applied findings to redesign the company website, which was recognized in the "Top 10 Websites" industry publication.</li>
+        <li>Diagnosed the root cause of five critical system vulnerabilities by analyzing network traffic and system logs, enabling remediation and improved system resilience within two weeks.</li>
+        <li>Contributed to a positive team environment, collaborating with fellow interns on group projects and presentations.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="skills">
+    <p class="field-label">Skills</p>
+    <h2>Technical &amp; Core Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-row"><span class="name">VAPT Fundamentals</span></div>
+      <div class="skill-row"><span class="name">Web Application Penetration Testing</span></div>
+      <div class="skill-row"><span class="name">Network Penetration Testing</span></div>
+      <div class="skill-row"><span class="name">Network Security Fundamentals</span></div>
+      <div class="skill-row"><span class="name">SIEM Tools</span></div>
+      <div class="skill-row"><span class="name">Burp Suite</span></div>
+      <div class="skill-row"><span class="name">Nmap</span></div>
+      <div class="skill-row"><span class="name">Nessus</span></div>
+      <div class="skill-row"><span class="name">Wireshark</span></div>
+      <div class="skill-row"><span class="name">SQLMap</span></div>
+      <div class="skill-row"><span class="name">Security Reporting</span></div>
+      <div class="skill-row"><span class="name">Critical Thinking &amp; Problem Solving</span></div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <p class="field-label">Certifications &amp; Licenses</p>
+    <h2>Credentials</h2>
+    <div class="cert-list">
+      <div class="cert-item">
+        <svg class="cert-badge" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="14"/><path d="M11 17l4 4 8-8"/></svg>
+        <div class="cert-name">American Certified Penetration Tester</div>
+      </div>
+      <div class="cert-item">
+        <svg class="cert-badge" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="14"/><path d="M11 17l4 4 8-8"/></svg>
+        <div class="cert-name">Verified Ethical Hacker</div>
+      </div>
+      <div class="cert-item">
+        <svg class="cert-badge" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="14"/><path d="M11 17l4 4 8-8"/></svg>
+        <div class="cert-name">Cisco Certified Professional — Ethical Hacker</div>
+      </div>
+      <div class="cert-item">
+        <svg class="cert-badge" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="14"/><path d="M11 17l4 4 8-8"/></svg>
+        <div class="cert-name">American Certified Web Application Security Engineer</div>
+      </div>
+      <div class="cert-item">
+        <svg class="cert-badge" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="14"/><path d="M11 17l4 4 8-8"/></svg>
+        <div class="cert-name">Python Basics</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <p class="field-label">Achievements</p>
+    <h2>Recognition</h2>
+    <div class="achievement">
+      <span class="a-date">12/2023</span>
+      <span class="a-text"><strong>30th place, Cyber Quest CTF</strong> — proven practical skills in cybersecurity demonstrated under competition conditions.</span>
+    </div>
+  </section>
+
+  <section id="education-lang">
+    <div class="two-col">
+      <div>
+        <p class="field-label">Education</p>
+        <h2>School</h2>
+        <p>GHSS Pookkoottumpad, Malappuram</p>
+      </div>
+      <div>
+        <p class="field-label">Languages</p>
+        <h2>Spoken</h2>
+        <div class="lang-row"><span>English</span><span class="level">Elementary</span></div>
+        <div class="lang-row"><span>Malayalam</span><span class="level">Native</span></div>
+        <div class="lang-row"><span>Hindi</span><span class="level">Fluent</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <p class="field-label">Contact</p>
+    <h2>Get in Touch</h2>
+    <div class="contact-grid">
+      <a class="contact-link" href="mailto:shibilsalu086@gmail.com">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>
+        shibilsalu086@gmail.com
+      </a>
+      <a class="contact-link" href="tel:+971541508986">
+        <svg viewBox="0 0 24 24"><path d="M6 3h4l2 5-2.5 1.5a11 11 0 005 5L16 12l5 2v4a2 2 0 01-2 2C10.5 20 4 13.5 4 5a2 2 0 012-2z"/></svg>
+        +971 54 150 8986
+      </a>
+      <a class="contact-link" href="https://tryhackme.com" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg>
+        TryHackMe
+      </a>
+      <a class="contact-link" href="https://hackthebox.com" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/></svg>
+        Hack The Box
+      </a>
+    </div>
+  </section>
+
+  <footer>Dubai Investment Park Second, Dubai, UAE</footer>
+
+</div>
+</body>
+</html>
