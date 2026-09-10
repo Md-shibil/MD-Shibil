@@ -2,7 +2,7 @@
 
 Personal portfolio site for Muhammed Shibil, an entry-level cybersecurity professional based in Dubai, UAE, focused on web application penetration testing, cyber forensics, and vulnerability assessment.
 
-🔗 **Live site:** https://md-shibil.github.io
+🔗 **Live site:** https://github.com/Md-shibil
 
 ## About
 
